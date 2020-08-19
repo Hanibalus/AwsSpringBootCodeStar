@@ -27,6 +27,6 @@ public class HelloWorldController {
     }
 
     private String createResponse(String name) {
-        return new JSONObject().put("Output", String.format(MESSAGE_FORMAT, name)).toString();
+        return new JSONObject().put("Output man", String.format(MESSAGE_FORMAT, name)).toString();
     }
 }
