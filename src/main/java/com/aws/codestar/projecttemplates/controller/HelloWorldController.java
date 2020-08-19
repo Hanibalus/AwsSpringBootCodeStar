@@ -21,12 +21,17 @@ public class HelloWorldController {
         return ResponseEntity.ok(createResponse(name));
     }
 
+    @RequestMapping(value = "/again", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity helloWorldGetAgain(@RequestParam(value = "name", defaultValue = "World") String name) {
+        return ResponseEntity.ok(createResponse(name));
+    }
+
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity helloWorldPost(@RequestParam(value = "name", defaultValue = "World") String name) {
         return ResponseEntity.ok(createResponse(name));
     }
 
     private String createResponse(String name) {
-        return new JSONObject().put("Output man", String.format(MESSAGE_FORMAT, name)).toString();
+        return new JSONObject().put("Output", String.format(MESSAGE_FORMAT, name)).toString();
     }
 }
